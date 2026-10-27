@@ -1,0 +1,35 @@
+/* variables principales de colores, tipografia y medidas */
+
+/* paleta de colores del diseno */
+$color-primary: #076CF0;
+$color-primary-dark: #0552b8;
+$color-dark: #000000;
+$color-dark-alt: #0a0e14;
+$color-dark-card: #121820;
+$color-white: #ffffff;
+$color-light: #f8fafc;
+$color-gray: #616161;
+$color-gray-light: #868686;
+$color-track: #f1f4f8;
+
+/* colores de las sombras brillantes y barras de progreso */
+$color-cyan: #3f90fb;
+$color-mint: #7ee6c6;
+$color-pink: #df8cc3;
+$color-orange: #f4a382;
+$color-orange-bar: #f2662f;
+$color-pink-bar: #fa2b7e;
+$color-mint-bar: #23ddac;
+$color-blue-bar: #076cf0;
+
+/* tipografia */
+$font-main: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+/* puntos de interrupcion para el diseno responsivo */
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 900px;
+$breakpoint-desktop: 1200px;
+
+/* dimensiones del contenedor maximo */
+$container-max-width: 1200px;
+$container-padding: 20px;

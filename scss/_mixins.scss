@@ -1,0 +1,69 @@
+/* mixins reutilizables para flexbox, grid, efectos y media queries */
+
+/* mixin para centrar elementos rapidamente con flexbox */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* mixin para alinear contenido a los extremos con flexbox */
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* mixin para armar cuadriculas con css grid */
+@mixin grid-columns($cols, $gap: 30px) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+}
+
+/* mixin para botones redondeados tipo pastilla */
+@mixin button-pill($bg: $color-primary, $text-color: $color-white) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg;
+  color: $text-color;
+  padding: 10px 32px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($bg, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(7, 108, 240, 0.3);
+  }
+}
+
+/* mixin para crear el efecto de sombra brillante en las tarjetas */
+@mixin card-glow($color, $alpha: 0.35) {
+  box-shadow: 0 20px 35px rgba($color, $alpha);
+}
+
+/* mixin para manejar media queries de forma comoda y limpia */
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: #{$breakpoint-mobile}) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-small {
+    @media (max-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+  }
+}

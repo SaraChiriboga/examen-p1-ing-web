@@ -1,0 +1,77 @@
+/* seccion hero principal con fondo oscuro y texto llamativo */
+
+.hero {
+  position: relative;
+  min-height: 750px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)), url('../assets/img/hero-bg.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  color: $color-white;
+  padding-top: 180px;
+  padding-bottom: 140px;
+  display: flex;
+  align-items: center;
+
+  @include respond-to(tablet) {
+    min-height: 600px;
+    padding-top: 140px;
+    padding-bottom: 100px;
+  }
+
+  @include respond-to(mobile) {
+    min-height: 520px;
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+
+  &__container {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.85);
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+
+  &__title {
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 20px;
+
+    @include respond-to(tablet) {
+      font-size: 36px;
+    }
+
+    @include respond-to(mobile) {
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+  }
+
+  &__desc {
+    font-size: 16px;
+    color: rgba($color-white, 0.8);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+
+    @include respond-to(mobile) {
+      font-size: 14px;
+    }
+  }
+}

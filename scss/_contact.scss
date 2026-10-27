@@ -1,0 +1,131 @@
+/* seccion de soporte y contacto con formulario y datos de atencion */
+
+.contact {
+  background-color: $color-dark;
+  color: $color-white;
+  padding: 90px 0 80px;
+
+  @include respond-to(tablet) {
+    padding: 60px 0;
+  }
+
+  /* formulario con campos de linea inferior blanca */
+  &__form {
+    margin-top: 35px;
+    margin-bottom: 70px;
+
+    @include respond-to(tablet) {
+      margin-bottom: 50px;
+    }
+  }
+
+  /* fila de 3 campos: nombre, correo y telefono */
+  &__row {
+    @include grid-columns(3, 30px);
+    margin-bottom: 30px;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+
+    &--full {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgba($color-white, 0.85);
+    color: $color-white;
+    font-family: $font-main;
+    font-size: 14px;
+    padding: 12px 0;
+    outline: none;
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: rgba($color-white, 0.6);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    &:focus {
+      border-bottom-color: $color-primary;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  &__action {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__submit {
+    min-width: 130px;
+  }
+
+  /* bloque de informacion de contacto con iconos */
+  &__info {
+    @include grid-columns(3, 40px);
+    padding-top: 45px;
+    border-top: 1px solid rgba($color-white, 0.15);
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding-top: 35px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  &__icon-wrap {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    @include flex-center;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__line {
+    font-size: 14px;
+    color: rgba($color-white, 0.75);
+    line-height: 1.6;
+
+    a {
+      color: rgba($color-white, 0.75);
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}

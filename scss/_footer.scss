@@ -1,0 +1,49 @@
+/* pie de pagina con enlaces secundarios y derechos reservados */
+
+.footer {
+  background-color: #030406;
+  color: $color-white;
+  padding: 35px 0;
+  border-top: 1px solid rgba($color-white, 0.08);
+
+  &__container {
+    @include flex-between;
+
+    @include respond-to(tablet) {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    @include respond-to(tablet) {
+      justify-content: center;
+      gap: 18px;
+    }
+  }
+
+  &__link {
+    font-size: 13px;
+    color: rgba($color-white, 0.7);
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &--active {
+      color: $color-primary;
+      font-weight: 600;
+    }
+  }
+
+  &__copy {
+    font-size: 13px;
+    color: rgba($color-white, 0.5);
+  }
+}

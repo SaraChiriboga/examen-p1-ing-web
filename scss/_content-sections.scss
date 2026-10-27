@@ -1,0 +1,137 @@
+/* secciones de contenido de dos columnas con imagenes y textos */
+
+/* seccion sobre nosotros */
+.about {
+  padding: 80px 0;
+
+  @include respond-to(tablet) {
+    padding: 50px 0;
+  }
+
+  &__grid {
+    @include grid-columns(2, 60px);
+    align-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__media {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__button {
+    margin-top: 15px;
+  }
+}
+
+/* seccion be unique con imagen a la derecha */
+.be-unique {
+  padding: 80px 0;
+  background-color: $color-white;
+
+  @include respond-to(tablet) {
+    padding: 50px 0;
+  }
+
+  &__grid {
+    @include grid-columns(2, 60px);
+    align-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include respond-to(tablet) {
+      order: 2;
+    }
+  }
+
+  &__media {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+    @include respond-to(tablet) {
+      order: 1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+  }
+
+  &__button {
+    margin-top: 15px;
+  }
+}
+
+/* seccion de productos con muestra de celulares */
+.products {
+  padding: 80px 0 100px;
+  background-color: $color-white;
+
+  @include respond-to(tablet) {
+    padding: 50px 0 70px;
+  }
+
+  &__grid {
+    @include grid-columns(2, 60px);
+    align-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__media {
+    position: relative;
+    @include flex-center;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__button {
+    margin-top: 15px;
+  }
+}

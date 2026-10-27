@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovation That Drives Emotion | Bridge Agency</title>
+
+  <!-- fuente tipografica poppins desde google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- hoja de estilos principal en un solo archivo -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- encabezado con logo y navegacion principal -->
+  <header class="header">
+    <div class="container header__container">
+      <!-- logo de la marca -->
+      <a href="#home" class="header__logo">
+        <img src="assets/img/logo.png" alt="Logo Bridge" class="header__logo-img">
+      </a>
+
+      <!-- control para el menu movil responsive -->
+      <input type="checkbox" id="menu-toggle" class="header__checkbox">
+      <label for="menu-toggle" class="header__toggle" aria-label="Abrir menu de navegacion">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <!-- menu de navegacion con enlaces a las secciones -->
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li class="header__item">
+            <a href="#home" class="header__link header__link--active">Home</a>
+          </li>
+          <li class="header__item">
+            <a href="#about" class="header__link">About Us</a>
+          </li>
+          <li class="header__item">
+            <a href="#skills" class="header__link">Service</a>
+          </li>
+          <li class="header__item">
+            <a href="#products" class="header__link">Products</a>
+          </li>
+          <li class="header__item">
+            <a href="#people" class="header__link">People</a>
+          </li>
+          <li class="header__item">
+            <a href="#contact" class="header__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- seccion hero principal con fondo oscuro de laptop y texto alineado a la izquierda -->
+    <section class="hero" id="home">
+      <div class="container hero__container">
+        <div class="hero__content">
+          <h1 class="hero__title">
+            Innovation<br>
+            That Drives<br>
+            Emotion
+          </h1>
+          <span class="hero__subtitle">The Next Level</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- tarjetas flotantes que sobresalen del hero organizadas con css grid -->
+    <section class="features-hero">
+      <div class="container">
+        <div class="features-hero__grid">
+          <!-- tarjeta 1: countless layout con icono en caja blanca y texto centrado abajo -->
+          <div class="feature-item">
+            <div class="feature-card feature-card--cyan">
+              <img src="assets/img/icon-countless-layout.png" alt="Icono de pantallas" class="feature-card__icon">
+            </div>
+            <span class="feature-item__title">Countless Layout</span>
+          </div>
+
+          <!-- tarjeta 2: easy to customize con icono en caja blanca y texto centrado abajo -->
+          <div class="feature-item">
+            <div class="feature-card feature-card--mint">
+              <img src="assets/img/icon-easy-customize.png" alt="Icono de grafico" class="feature-card__icon">
+            </div>
+            <span class="feature-item__title">Easy to customize</span>
+          </div>
+
+          <!-- tarjeta 3: live customizer con icono en caja blanca y texto centrado abajo -->
+          <div class="feature-item">
+            <div class="feature-card feature-card--pink">
+              <img src="assets/img/icon-live-customizer.png" alt="Icono de monitor dual" class="feature-card__icon">
+            </div>
+            <span class="feature-item__title">Live customizer</span>
+          </div>
+
+          <!-- tarjeta 4: fully responsive con icono en caja blanca y texto centrado abajo -->
+          <div class="feature-item">
+            <div class="feature-card feature-card--orange">
+              <img src="assets/img/icon-fully-responsive.png" alt="Icono de usuario" class="feature-card__icon">
+            </div>
+            <span class="feature-item__title">Fully responsive</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- seccion sobre nosotros con foto y texto explicativo -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <!-- imagen con bordes redondeados a la izquierda -->
+          <div class="about__media">
+            <img src="assets/img/about-vr.png" alt="Mujer experimentando realidad virtual" class="about__image">
+          </div>
+
+          <!-- texto explicativo con barra azul y titulo principal primero -->
+          <div class="about__content">
+            <div class="section-intro">
+              <div class="section-intro__bar"></div>
+              <div class="section-intro__meta">
+                <h2 class="section-intro__title">About Us</h2>
+                <span class="section-intro__subtitle">Technology</span>
+              </div>
+            </div>
+            <p class="section-desc">
+              Nulla placerat mi vitae mauris varius consequat. Aliquam libero ante, consectetur at turpis sit amet, congue Suspendisse porta bibendum scelerisque.
+            </p>
+            <p class="section-desc">
+              Suspendisse porta bibendum scelerisque. Nulla placerat
+            </p>
+            <a href="#contact" class="btn about__button">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- seccion de habilidades tecnicas y barras de porcentaje -->
+    <section class="skills" id="skills">
+      <div class="container">
+        <div class="skills__grid">
+          <!-- columna izquierda con titulo en letra grande y subtitulo azul -->
+          <div class="skills__content">
+            <div class="section-intro">
+              <div class="section-intro__bar"></div>
+              <div class="section-intro__meta">
+                <h2 class="section-intro__title">We Work With Big And Small Companies</h2>
+                <span class="section-intro__subtitle">Experience</span>
+              </div>
+            </div>
+            <p class="section-desc">
+              Nulla placerat mi vitae mauris varius consequat. Aliquam libero ante, consectetur at turpis sit amet, congue Suspendisse porta bibendum scelerisque.
+            </p>
+            <p class="section-desc">
+              Suspendisse porta bibendum scelerisque. Nulla placerat
+            </p>
+          </div>
+
+          <!-- columna derecha con barras de progreso con porcentaje -->
+          <div class="skills__bars">
+            <!-- barra 1: app development 92% -->
+            <div class="progress-bar">
+              <div class="progress-bar__info">
+                <span class="progress-bar__label">App Development</span>
+                <span class="progress-bar__percentage">92%</span>
+              </div>
+              <div class="progress-bar__track">
+                <div class="progress-bar__fill progress-bar__fill--orange" style="width: 92%;"></div>
+              </div>
+            </div>
+
+            <!-- barra 2: user interface 88% -->
+            <div class="progress-bar">
+              <div class="progress-bar__info">
+                <span class="progress-bar__label">User Interface</span>
+                <span class="progress-bar__percentage">88%</span>
+              </div>
+              <div class="progress-bar__track">
+                <div class="progress-bar__fill progress-bar__fill--pink" style="width: 88%;"></div>
+              </div>
+            </div>
+
+            <!-- barra 3: user experiences 95% -->
+            <div class="progress-bar">
+              <div class="progress-bar__info">
+                <span class="progress-bar__label">User Experiences</span>
+                <span class="progress-bar__percentage">95%</span>
+              </div>
+              <div class="progress-bar__track">
+                <div class="progress-bar__fill progress-bar__fill--mint" style="width: 95%;"></div>
+              </div>
+            </div>
+
+            <!-- barra 4: information architecture 50% -->
+            <div class="progress-bar">
+              <div class="progress-bar__info">
+                <span class="progress-bar__label">Information Architecture</span>
+                <span class="progress-bar__percentage">50%</span>
+              </div>
+              <div class="progress-bar__track">
+                <div class="progress-bar__fill progress-bar__fill--blue" style="width: 50%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- banner intermedio con mensaje de impacto y fondo oscuro -->
+    <section class="banner-parallax">
+      <div class="container">
+        <div class="banner-parallax__content">
+          <span class="banner-parallax__subtitle">The Next Level</span>
+          <h2 class="banner-parallax__title">Unique Experiences</h2>
+          <p class="banner-parallax__desc">
+            Nulla placerat mi vitae mauris varius consequat. Aliquam libero ante, consectetur at turpis sit amet, congue Suspendisse porta bibendum scelerisque.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- seccion be unique centrada en las personas -->
+    <section class="be-unique" id="people">
+      <div class="container">
+        <div class="be-unique__grid">
+          <!-- texto con boton a la izquierda -->
+          <div class="be-unique__content">
+            <div class="section-intro">
+              <div class="section-intro__bar"></div>
+              <div class="section-intro__meta">
+                <h2 class="section-intro__title">Be Unique</h2>
+                <span class="section-intro__subtitle">People Really Matter</span>
+              </div>
+            </div>
+            <p class="section-desc">
+              Nulla placerat mi vitae mauris varius consequat. Aliquam libero ante, consectetur at turpis sit amet, congue Suspendisse porta bibendum scelerisque.
+            </p>
+            <p class="section-desc">
+              Suspendisse porta bibendum scelerisque. Nulla placerat
+            </p>
+            <a href="#contact" class="btn be-unique__button">Learn More</a>
+          </div>
+
+          <!-- imagen de retrato a la derecha -->
+          <div class="be-unique__media">
+            <img src="assets/img/be-unique-woman.png" alt="Retrato con iluminacion neon" class="be-unique__image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- seccion de productos con vista previa de dispositivos moviles -->
+    <section class="products" id="products">
+      <div class="container">
+        <div class="products__grid">
+          <!-- imagen con maquetas de celulares a la izquierda -->
+          <div class="products__media">
+            <img src="assets/img/products-phones.png" alt="Maqueta de celulares con interfaces modernas" class="products__image">
+          </div>
+
+          <!-- contenido textual y boton a la derecha -->
+          <div class="products__content">
+            <div class="section-intro">
+              <div class="section-intro__bar"></div>
+              <div class="section-intro__meta">
+                <h2 class="section-intro__title">Products</h2>
+                <span class="section-intro__subtitle">Latest Features</span>
+              </div>
+            </div>
+            <p class="section-desc">
+              Nulla placerat mi vitae mauris varius consequat. Aliquam libero ante, consectetur at turpis sit amet, congue Suspendisse porta bibendum scelerisque.
+            </p>
+            <p class="section-desc">
+              Suspendisse porta bibendum scelerisque. Nulla placerat
+            </p>
+            <a href="#contact" class="btn products__button">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- franja con logos de marcas y clientes aliados -->
+    <section class="clients">
+      <div class="container">
+        <div class="clients__grid">
+          <div class="clients__item">
+            <img src="assets/img/client-adobe.png" alt="Logo de Adobe" class="clients__logo">
+          </div>
+          <div class="clients__item">
+            <img src="assets/img/client-wordpress.png" alt="Logo de WordPress" class="clients__logo">
+          </div>
+          <div class="clients__item">
+            <img src="assets/img/client-jquery.png" alt="Logo de jQuery" class="clients__logo">
+          </div>
+          <div class="clients__item">
+            <img src="assets/img/client-envato.png" alt="Logo de Envato" class="clients__logo">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- seccion de tres caracteristicas secundarias con brillo inferior -->
+    <section class="secondary-features">
+      <div class="container">
+        <div class="secondary-features__grid">
+          <!-- tarjeta secundaria 1: easy import -->
+          <article class="secondary-card secondary-card--glow-blue">
+            <div class="secondary-card__icon-wrap">
+              <img src="assets/img/icon-easy-import.png" alt="Icono de nube" class="secondary-card__icon">
+            </div>
+            <h3 class="secondary-card__title">Easy Import</h3>
+            <p class="secondary-card__text">
+              Nulla placerat mi vitae mauris varius consequat. Aliquam libero ante, consectetur at turpis sit amet.
+            </p>
+          </article>
+
+          <!-- tarjeta secundaria 2: stunning layouts -->
+          <article class="secondary-card secondary-card--glow-mint">
+            <div class="secondary-card__icon-wrap">
+              <img src="assets/img/icon-stunning-layouts.png" alt="Icono de capas" class="secondary-card__icon">
+            </div>
+            <h3 class="secondary-card__title">Stunning Layouts</h3>
+            <p class="secondary-card__text">
+              Nulla placerat mi vitae mauris varius consequat. Aliquam libero ante, consectetur at turpis sit amet.
+            </p>
+          </article>
+
+          <!-- tarjeta secundaria 3: no coding -->
+          <article class="secondary-card secondary-card--glow-pink">
+            <div class="secondary-card__icon-wrap">
+              <img src="assets/img/icon-no-coding.png" alt="Icono de controles" class="secondary-card__icon">
+            </div>
+            <h3 class="secondary-card__title">No Coding</h3>
+            <p class="secondary-card__text">
+              Nulla placerat mi vitae mauris varius consequat. Aliquam libero ante, consectetur at turpis sit amet.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- seccion de soporte y formulario de contacto -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <!-- encabezado de soporte con support primero y letra mas grande, y get in touch abajo en azul -->
+        <div class="section-intro section-intro--light">
+          <div class="section-intro__bar"></div>
+          <div class="section-intro__meta">
+            <h2 class="section-intro__title section-intro__title--light">Support</h2>
+            <span class="section-intro__subtitle section-intro__subtitle--light">Get In Touch</span>
+          </div>
+        </div>
+
+        <!-- formulario con campos de linea inferior blanca organizados con grid -->
+        <form class="contact__form" action="#" method="post">
+          <div class="contact__row">
+            <div class="contact__field">
+              <input type="text" name="name" class="contact__input" placeholder="Name" required>
+            </div>
+            <div class="contact__field">
+              <input type="email" name="email" class="contact__input" placeholder="Email" required>
+            </div>
+            <div class="contact__field">
+              <input type="tel" name="phone" class="contact__input" placeholder="Phone">
+            </div>
+          </div>
+
+          <div class="contact__field contact__field--full">
+            <textarea name="message" class="contact__textarea" rows="3" placeholder="Message" required></textarea>
+          </div>
+
+          <div class="contact__action">
+            <button type="submit" class="btn contact__submit">Send</button>
+          </div>
+        </form>
+
+        <!-- bloques de datos de atencion con iconos -->
+        <div class="contact__info">
+          <!-- bloque de telefonos -->
+          <div class="contact__item">
+            <div class="contact__icon-wrap">
+              <img src="assets/img/icon-phone.png" alt="Icono de telefono" class="contact__icon">
+            </div>
+            <div class="contact__details">
+              <span class="contact__line"><a href="tel:167712444225">1-677-124-44225</a></span>
+              <span class="contact__line"><a href="tel:167712444226">1-677-124-44226</a></span>
+              <span class="contact__line"><a href="tel:167712444227">1-677-124-44227</a></span>
+            </div>
+          </div>
+
+          <!-- bloque de correos electronicos -->
+          <div class="contact__item">
+            <div class="contact__icon-wrap">
+              <img src="assets/img/icon-email.png" alt="Icono de correo" class="contact__icon">
+            </div>
+            <div class="contact__details">
+              <span class="contact__line"><a href="mailto:office@bridge.com">office@bridge.com</a></span>
+              <span class="contact__line"><a href="mailto:service@bridge.com">service@bridge.com</a></span>
+              <span class="contact__line"><a href="mailto:shop@bridge.com">shop@bridge.com</a></span>
+            </div>
+          </div>
+
+          <!-- bloque de direccion fisica -->
+          <div class="contact__item">
+            <div class="contact__icon-wrap">
+              <img src="assets/img/icon-location.png" alt="Icono de ubicacion" class="contact__icon">
+            </div>
+            <div class="contact__details">
+              <span class="contact__line">New York, Bridgestone side 130, NY</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- pie de pagina con navegacion y derechos de autor -->
+  <footer class="footer">
+    <div class="container footer__container">
+      <ul class="footer__nav">
+        <li class="footer__item">
+          <a href="#home" class="footer__link footer__link--active">Home</a>
+        </li>
+        <li class="footer__item">
+          <a href="#about" class="footer__link">About Us</a>
+        </li>
+        <li class="footer__item">
+          <a href="#skills" class="footer__link">Service</a>
+        </li>
+        <li class="footer__item">
+          <a href="#products" class="footer__link">Products</a>
+        </li>
+        <li class="footer__item">
+          <a href="#people" class="footer__link">People</a>
+        </li>
+        <li class="footer__item">
+          <a href="#contact" class="footer__link">Contact</a>
+        </li>
+      </ul>
+
+      <p class="footer__copy">
+        &copy; 2026 Bridge Agency. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

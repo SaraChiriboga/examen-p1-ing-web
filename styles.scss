@@ -1,0 +1,1152 @@
+/* archivo principal de sass con variables, mixins, nesting y componentes */
+
+/* ---------------------------------------------------- */
+/* variables del diseno */
+/* ---------------------------------------------------- */
+
+/* paleta de colores principales */
+$color-primary: #076cf0;
+$color-primary-dark: #0552b8;
+$color-dark: #000000;
+$color-dark-alt: #0a0e14;
+$color-white: #ffffff;
+$color-light: #f8fafc;
+$color-gray: #616161;
+$color-gray-light: #868686;
+$color-track: #f1f4f8;
+
+/* colores de sombras brillantes y barras de habilidad */
+$color-cyan: #3f90fb;
+$color-mint: #7ee6c6;
+$color-pink: #df8cc3;
+$color-orange: #f4a382;
+$color-orange-bar: #f2662f;
+$color-pink-bar: #fa2b7e;
+$color-mint-bar: #23ddac;
+$color-blue-bar: #076cf0;
+
+/* tipografia base */
+$font-main: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+/* puntos de quiebre para el diseno responsivo */
+$breakpoint-mobile: 600px;
+$breakpoint-tablet: 900px;
+$breakpoint-desktop: 1200px;
+
+/* ancho maximo del contenedor */
+$container-max-width: 1200px;
+$container-padding: 20px;
+
+/* ---------------------------------------------------- */
+/* mixins reutilizables */
+/* ---------------------------------------------------- */
+
+/* mixin para centrar elementos facilmente con flexbox */
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* mixin para alinear a los extremos con flexbox */
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* mixin para estructurar cuadriculas con css grid */
+@mixin grid-columns($cols, $gap: 30px) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+}
+
+/* mixin para crear botones con bordes redondeados tipo pastilla */
+@mixin button-pill($bg: $color-primary, $text-color: $color-white) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg;
+  color: $text-color;
+  padding: 10px 32px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darken($bg, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(7, 108, 240, 0.3);
+  }
+}
+
+/* mixin para aplicar el efecto de sombra brillante de las tarjetas */
+@mixin card-glow($color, $alpha: 0.35) {
+  box-shadow: 0 20px 35px rgba($color, $alpha);
+}
+
+/* mixin para controlar las media queries de forma limpia */
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: #{$breakpoint-mobile}) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (max-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  } @else if $breakpoint == desktop-small {
+    @media (max-width: #{$breakpoint-desktop}) {
+      @content;
+    }
+  }
+}
+
+/* ---------------------------------------------------- */
+/* reinicio de estilos y base */
+/* ---------------------------------------------------- */
+
+/* reinicio para calculos de tamano consistentes */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-main;
+  color: $color-gray;
+  background-color: $color-white;
+  line-height: 1.6;
+  font-size: 15px;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* contenedor para centrar y limitar el contenido */
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+/* componente de encabezado de seccion con barra azul y titulo grande arriba */
+.section-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+
+  /* barra vertical azul */
+  &__bar {
+    width: 4px;
+    height: 52px;
+    background-color: $color-primary;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* el titulo va primero y en letra mas grande */
+  &__title {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $color-dark;
+    line-height: 1.1;
+    margin-bottom: 6px;
+
+    @include respond-to(mobile) {
+      font-size: 24px;
+    }
+
+    &--light {
+      color: $color-white;
+    }
+  }
+
+  /* el subtitulo va abajo en azul y letras espaciadas */
+  &__subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: $color-primary;
+
+    &--light {
+      color: $color-primary;
+    }
+  }
+}
+
+/* parrafos descriptivos estandar */
+.section-desc {
+  color: $color-gray;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+
+  &--light {
+    color: rgba($color-white, 0.8);
+  }
+}
+
+/* componente de botones generales */
+.btn {
+  @include button-pill($color-primary, $color-white);
+
+  &--outline {
+    background-color: transparent;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}
+
+/* ---------------------------------------------------- */
+/* componente header y barra de navegacion */
+/* ---------------------------------------------------- */
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 25px 0;
+
+  &__container {
+    @include flex-between;
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: center;
+
+    &-img {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /* boton hamburguesa para moviles */
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 110;
+
+    span {
+      width: 100%;
+      height: 3px;
+      background-color: $color-white;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    @include respond-to(tablet) {
+      display: flex;
+    }
+  }
+
+  /* checkbox oculto para el menu desplegable */
+  &__checkbox {
+    display: none;
+
+    &:checked ~ .header__nav {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &:checked ~ .header__toggle {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+    }
+  }
+
+  /* contenedor del menu */
+  &__nav {
+    @include respond-to(tablet) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: rgba($color-dark-alt, 0.98);
+      backdrop-filter: blur(10px);
+      padding: 25px 20px;
+      transform: translateY(-15px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+
+    @include respond-to(tablet) {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  }
+
+  &__link {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: $color-white;
+    position: relative;
+    padding: 5px 0;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    /* enlace activo marcado con linea azul */
+    &--active {
+      color: $color-primary;
+      font-weight: 600;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color-primary;
+        border-radius: 1px;
+      }
+    }
+  }
+}
+
+/* ---------------------------------------------------- */
+/* componente hero principal */
+/* ---------------------------------------------------- */
+
+.hero {
+  position: relative;
+  min-height: 770px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.15) 55%, rgba(0, 0, 0, 0.5) 100%), url('assets/img/hero-bg.jpg');
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  color: $color-white;
+  padding-top: 220px;
+  padding-bottom: 160px;
+  display: flex;
+  align-items: center;
+
+  @include respond-to(tablet) {
+    min-height: 600px;
+    padding-top: 150px;
+    padding-bottom: 120px;
+    background-position: center;
+  }
+
+  @include respond-to(mobile) {
+    min-height: 500px;
+    padding-top: 130px;
+    padding-bottom: 100px;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  /* texto alineado a la izquierda para dejar visible la laptop a la derecha */
+  &__content {
+    max-width: 540px;
+    text-align: left;
+  }
+
+  /* el titulo grande va arriba en tres lineas */
+  &__title {
+    font-size: 52px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    color: $color-white;
+
+    @include respond-to(tablet) {
+      font-size: 38px;
+    }
+
+    @include respond-to(mobile) {
+      font-size: 28px;
+    }
+  }
+
+  /* el subtitulo the next level va debajo del titulo principal */
+  &__subtitle {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.65);
+    display: inline-block;
+  }
+}
+
+/* ---------------------------------------------------- */
+/* componente de tarjetas de caracteristicas con sombras */
+/* ---------------------------------------------------- */
+
+/* 4 tarjetas flotantes del hero posicionadas sobre el limite del fondo oscuro */
+.features-hero {
+  position: relative;
+  z-index: 20;
+  margin-top: -84px;
+  margin-bottom: 70px;
+
+  @include respond-to(tablet) {
+    margin-top: -50px;
+    margin-bottom: 50px;
+  }
+
+  &__grid {
+    @include grid-columns(4, 25px);
+
+    @include respond-to(desktop-small) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @include respond-to(mobile) {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+  }
+}
+
+/* elemento contenedor que agrupa la caja blanca y el texto inferior */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  /* el texto va por fuera de la tarjeta blanca centrado abajo */
+  &__title {
+    margin-top: 18px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a1a1a;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
+  }
+
+  &:hover {
+    .feature-card {
+      transform: translateY(-6px);
+    }
+    .feature-item__title {
+      color: $color-primary;
+    }
+  }
+}
+
+/* tarjeta blanca individual que solo contiene el icono con su sombra brillante */
+.feature-card {
+  width: 100%;
+  max-width: 250px;
+  height: 168px;
+  background-color: $color-white;
+  border-radius: 12px;
+  @include flex-center;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &__icon {
+    max-width: 78px;
+    max-height: 78px;
+    object-fit: contain;
+  }
+
+  /* modificadores de sombra brillante en la parte inferior */
+  &--cyan {
+    @include card-glow($color-cyan, 0.45);
+  }
+
+  &--mint {
+    @include card-glow($color-mint, 0.5);
+  }
+
+  &--pink {
+    @include card-glow($color-pink, 0.45);
+  }
+
+  &--orange {
+    @include card-glow($color-orange, 0.5);
+  }
+}
+
+/* 3 tarjetas secundarias inferiores */
+.secondary-features {
+  padding: 80px 0 100px;
+  background-color: $color-white;
+
+  @include respond-to(tablet) {
+    padding: 60px 0;
+  }
+
+  &__grid {
+    @include grid-columns(3, 30px);
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+}
+
+.secondary-card {
+  background-color: $color-white;
+  border-radius: 10px;
+  padding: 40px 30px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+  }
+
+  &__icon-wrap {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 22px;
+    @include flex-center;
+  }
+
+  &__icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__title {
+    font-size: 17px;
+    font-weight: 700;
+    color: $color-dark;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  &__text {
+    font-size: 14px;
+    color: $color-gray-light;
+    line-height: 1.7;
+  }
+
+  /* sombras inferiores de color */
+  &--glow-blue {
+    @include card-glow($color-cyan, 0.35);
+  }
+
+  &--glow-mint {
+    @include card-glow($color-mint, 0.4);
+  }
+
+  &--glow-pink {
+    @include card-glow($color-pink, 0.35);
+  }
+}
+
+/* ---------------------------------------------------- */
+/* secciones de contenido de dos columnas */
+/* ---------------------------------------------------- */
+
+/* seccion about us */
+.about {
+  padding: 80px 0;
+
+  @include respond-to(tablet) {
+    padding: 50px 0;
+  }
+
+  &__grid {
+    @include grid-columns(2, 60px);
+    align-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__media {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__button {
+    margin-top: 15px;
+  }
+}
+
+/* seccion be unique */
+.be-unique {
+  padding: 80px 0;
+  background-color: $color-white;
+
+  @include respond-to(tablet) {
+    padding: 50px 0;
+  }
+
+  &__grid {
+    @include grid-columns(2, 60px);
+    align-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    @include respond-to(tablet) {
+      order: 2;
+    }
+  }
+
+  &__media {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+
+    @include respond-to(tablet) {
+      order: 1;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+  }
+
+  &__button {
+    margin-top: 15px;
+  }
+}
+
+/* seccion products */
+.products {
+  padding: 80px 0 100px;
+  background-color: $color-white;
+
+  @include respond-to(tablet) {
+    padding: 50px 0 70px;
+  }
+
+  &__grid {
+    @include grid-columns(2, 60px);
+    align-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__media {
+    position: relative;
+    @include flex-center;
+  }
+
+  &__image {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__button {
+    margin-top: 15px;
+  }
+}
+
+/* ---------------------------------------------------- */
+/* componente de habilidades y barras de porcentaje */
+/* ---------------------------------------------------- */
+
+.skills {
+  padding: 80px 0 100px;
+  background-color: $color-light;
+
+  @include respond-to(tablet) {
+    padding: 50px 0 70px;
+  }
+
+  &__grid {
+    @include grid-columns(2, 60px);
+    align-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bars {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+}
+
+.progress-bar {
+  width: 100%;
+
+  &__info {
+    @include flex-between;
+    margin-bottom: 8px;
+  }
+
+  &__label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $color-dark;
+  }
+
+  &__percentage {
+    font-size: 13px;
+    font-weight: 700;
+    color: $color-dark;
+  }
+
+  /* pista gris de fondo */
+  &__track {
+    width: 100%;
+    height: 6px;
+    background-color: $color-track;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  /* relleno de color segun el porcentaje */
+  &__fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1s ease;
+
+    &--orange {
+      background-color: $color-orange-bar;
+    }
+
+    &--pink {
+      background-color: $color-pink-bar;
+    }
+
+    &--mint {
+      background-color: $color-mint-bar;
+    }
+
+    &--blue {
+      background-color: $color-blue-bar;
+    }
+  }
+}
+
+/* ---------------------------------------------------- */
+/* componente de banner intermedio */
+/* ---------------------------------------------------- */
+
+.banner-parallax {
+  position: relative;
+  min-height: 480px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('assets/img/banner-unique-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: $color-white;
+  @include flex-center;
+  text-align: center;
+  padding: 80px 20px;
+
+  @include respond-to(tablet) {
+    min-height: 380px;
+    padding: 60px 20px;
+  }
+
+  &__content {
+    max-width: 800px;
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba($color-white, 0.85);
+    margin-bottom: 12px;
+    display: inline-block;
+  }
+
+  &__title {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 16px;
+
+    @include respond-to(tablet) {
+      font-size: 32px;
+    }
+
+    @include respond-to(mobile) {
+      font-size: 24px;
+    }
+  }
+
+  &__desc {
+    font-size: 16px;
+    color: rgba($color-white, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+
+    @include respond-to(mobile) {
+      font-size: 14px;
+    }
+  }
+}
+
+/* ---------------------------------------------------- */
+/* componente de franja de clientes */
+/* ---------------------------------------------------- */
+
+.clients {
+  padding: 55px 0;
+  background-color: $color-white;
+  border-top: 1px solid #f1f4f8;
+  border-bottom: 1px solid #f1f4f8;
+
+  @include respond-to(mobile) {
+    padding: 40px 0;
+  }
+
+  &__grid {
+    @include grid-columns(4, 40px);
+    align-items: center;
+    justify-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @include respond-to(mobile) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+  }
+
+  &__item {
+    @include flex-center;
+    width: 100%;
+    padding: 10px;
+  }
+
+  &__logo {
+    max-height: 40px;
+    max-width: 160px;
+    object-fit: contain;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+  }
+}
+
+/* ---------------------------------------------------- */
+/* componente de soporte y contacto */
+/* ---------------------------------------------------- */
+
+.contact {
+  background-color: $color-dark;
+  color: $color-white;
+  padding: 90px 0 80px;
+
+  @include respond-to(tablet) {
+    padding: 60px 0;
+  }
+
+  &__form {
+    margin-top: 35px;
+    margin-bottom: 70px;
+
+    @include respond-to(tablet) {
+      margin-bottom: 50px;
+    }
+  }
+
+  /* 3 columnas para nombre, correo y telefono */
+  &__row {
+    @include grid-columns(3, 30px);
+    margin-bottom: 30px;
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+
+    &--full {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid rgba($color-white, 0.85);
+    color: $color-white;
+    font-family: $font-main;
+    font-size: 14px;
+    padding: 12px 0;
+    outline: none;
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: rgba($color-white, 0.6);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    &:focus {
+      border-bottom-color: $color-primary;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  &__action {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__submit {
+    min-width: 130px;
+  }
+
+  /* datos de contacto con iconos */
+  &__info {
+    @include grid-columns(3, 40px);
+    padding-top: 45px;
+    border-top: 1px solid rgba($color-white, 0.15);
+
+    @include respond-to(tablet) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding-top: 35px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  &__icon-wrap {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    @include flex-center;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__line {
+    font-size: 14px;
+    color: rgba($color-white, 0.75);
+    line-height: 1.6;
+
+    a {
+      color: rgba($color-white, 0.75);
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+}
+
+/* ---------------------------------------------------- */
+/* componente footer */
+/* ---------------------------------------------------- */
+
+.footer {
+  background-color: #030406;
+  color: $color-white;
+  padding: 35px 0;
+  border-top: 1px solid rgba($color-white, 0.08);
+
+  &__container {
+    @include flex-between;
+
+    @include respond-to(tablet) {
+      flex-direction: column;
+      gap: 20px;
+      text-align: center;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+
+    @include respond-to(tablet) {
+      justify-content: center;
+      gap: 18px;
+    }
+  }
+
+  &__link {
+    font-size: 13px;
+    color: rgba($color-white, 0.7);
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &--active {
+      color: $color-primary;
+      font-weight: 600;
+    }
+  }
+
+  &__copy {
+    font-size: 13px;
+    color: rgba($color-white, 0.5);
+  }
+}

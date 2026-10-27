@@ -1,0 +1,21 @@
+/* hoja de estilos principal que importa los componentes de sass */
+
+/* variables y configuraciones iniciales */
+@import 'variables';
+
+/* mixins reutilizables */
+@import 'mixins';
+
+/* estilos base y reinicio */
+@import 'base';
+
+/* componentes de la pagina */
+@import 'header';
+@import 'hero';
+@import 'features';
+@import 'content-sections';
+@import 'skills';
+@import 'banner';
+@import 'clients';
+@import 'contact';
+@import 'footer';

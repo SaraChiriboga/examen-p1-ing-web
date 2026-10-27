@@ -1,0 +1,49 @@
+/* franja de logos de clientes y aliados comerciales */
+
+.clients {
+  padding: 55px 0;
+  background-color: $color-white;
+  border-top: 1px solid #f1f4f8;
+  border-bottom: 1px solid #f1f4f8;
+
+  @include respond-to(mobile) {
+    padding: 40px 0;
+  }
+
+  &__grid {
+    @include grid-columns(4, 40px);
+    align-items: center;
+    justify-items: center;
+
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+
+    @include respond-to(mobile) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+  }
+
+  &__item {
+    @include flex-center;
+    width: 100%;
+    padding: 10px;
+  }
+
+  &__logo {
+    max-height: 40px;
+    max-width: 160px;
+    object-fit: contain;
+    opacity: 0.7;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+  }
+}

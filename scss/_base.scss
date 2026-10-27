@@ -1,0 +1,130 @@
+/* estilos base, reinicio de estilos y utilidades generales */
+
+/* reinicio basico para que las medidas sean consistentes */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-main;
+  color: $color-gray;
+  background-color: $color-white;
+  line-height: 1.6;
+  font-size: 15px;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+ul {
+  list-style: none;
+}
+
+/* contenedor para centrar y limitar el ancho de las secciones */
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $container-padding;
+  padding-right: $container-padding;
+}
+
+/* componente de encabezado de seccion con barra azul vertical */
+.section-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 25px;
+
+  &__bar {
+    width: 4px;
+    height: 48px;
+    background-color: $color-primary;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tag {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: $color-gray-light;
+    margin-bottom: 2px;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $color-dark;
+    line-height: 1.2;
+
+    @include respond-to(mobile) {
+      font-size: 22px;
+    }
+
+    &--light {
+      color: $color-white;
+    }
+  }
+
+  &--light {
+    .section-intro__tag {
+      color: rgba($color-white, 0.7);
+    }
+  }
+}
+
+/* parrafos descriptivos estandar */
+.section-desc {
+  color: $color-gray;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+
+  &--light {
+    color: rgba($color-white, 0.8);
+  }
+}
+
+/* componente de botones generales */
+.btn {
+  @include button-pill($color-primary, $color-white);
+
+  &--outline {
+    background-color: transparent;
+    border: 2px solid $color-primary;
+    color: $color-primary;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+}
